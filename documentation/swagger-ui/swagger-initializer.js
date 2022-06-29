@@ -3,8 +3,8 @@ window.onload = function() {
 
   // the following lines will be replaced by docker/configurator, when it runs in a docker-container
   window.ui = SwaggerUIBundle({
-	  // url: "http://localhost/documentation/api.php",
-    url: "http://coding-factory-php.herokuapp.com/documentation/api.php",
+	  url: "http://localhost/php_api_jwt/documentation/api.php",
+    // url: "http://coding-factory-php.herokuapp.com/documentation/api.php",
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [

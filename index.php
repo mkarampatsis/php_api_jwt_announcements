@@ -64,18 +64,29 @@ Route::add('/department/list', function() {
 
 Route::add('/department/(.*)/list', function($id) {
     global $department;
+    global $jwt;   
     
-    $result = $department->showDepartment($id); 
-    return $result;
+    $result = $jwt->validateJWT();
+    $checkValidation = json_decode($result);
+
+    if ($checkValidation->success) {
+        $result = $department->showDepartment($id); 
+        return $result;
+    } else 
+        return $result;
 });
 
 Route::add('/department/create', function() {
     global $department;
-
+    global $jwt;   
+    
+    $result = $jwt->validateJWT();
+    $checkValidation = json_decode($result);
+    
     // Get the JSON contents
     $json = file_get_contents('php://input');
     
-    if(isset($json) && !empty($json))  {
+    if(isset($json) && !empty($json) && $checkValidation->success)  {
         // decode the json data
         $data = json_decode($json);
         $result = $department->createDepartment($data);
@@ -89,11 +100,15 @@ Route::add('/department/create', function() {
 
 Route::add('/department/update', function() {
     global $department;
+    global $jwt;   
+    
+    $result = $jwt->validateJWT();
+    $checkValidation = json_decode($result);
 
     // Get the JSON contents
     $json = file_get_contents('php://input');
     
-    if(isset($json) && !empty($json))  {
+    if(isset($json) && !empty($json) && $checkValidation->success)  {
         // decode the json data
         $data = json_decode($json);
         $result = $department->updateDepartment($data);
@@ -107,10 +122,16 @@ Route::add('/department/update', function() {
 
 Route::add('/department/(.*)/delete', function($id) {
     global $department;
+    global $jwt;   
     
-    $result = $department->deleteDepartment($id);
-    return $result;
+    $result = $jwt->validateJWT();
+    $checkValidation = json_decode($result);
 
+    if ($checkValidation->success) {
+        $result = $department->deleteDepartment($id); 
+        return $result;
+    } else 
+        return $result;
 },'delete');
 
 // ========================================//
@@ -119,7 +140,7 @@ Route::add('/department/(.*)/delete', function($id) {
 
 Route::add('/subdepartment/(.*)/list', function($id) {
     global $subdepartment;
-
+    
     $result = $subdepartment->showSubdepartment($id); 
     return $result;
 });

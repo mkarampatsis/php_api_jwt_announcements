@@ -84,6 +84,7 @@ class Subdepartment {
      *     description="Create a subdepartment",
      *     operationId="createSubdepartment",
      *     tags={"Subdepartment"},
+     *     security={{"bearerAuth":{}}},
      *     @OA\RequestBody(
      *         @OA\MediaType(
      *             mediaType="application/json",
@@ -151,6 +152,7 @@ class Subdepartment {
      *     description="Delete a subdepartment",
      *     operationId="deleteSubdepartment",
      *     tags={"Subdepartment"},
+     *     security={{"bearerAuth":{}}},
      *     @OA\Parameter(
      *         name="identifier",
      *         in="path",
@@ -228,6 +230,7 @@ class Subdepartment {
      *     description="Update a subdepartment",
      *     operationId="updateSubdepartment",
      *     tags={"Subdepartment"},
+     *     security={{"bearerAuth":{}}},
      *     @OA\RequestBody(
      *         @OA\MediaType(
      *             mediaType="application/json",

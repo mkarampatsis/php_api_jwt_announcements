@@ -43,11 +43,11 @@ use OpenApi\Annotations as OA;
 *     description="Anouncements API",
 * )
 * @OA\Server(
-*     url="http://coding-factory-php.herokuapp.com/",
+*     url="http://localhost/",
 *     description="API server"
 * )
 * @OA\Server(
-*     url="http://localhost/",
+*     url="http://coding-factory-php.herokuapp.com/",
 *     description="API server"
 * )
 * @OA\Components(

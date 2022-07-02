@@ -86,6 +86,7 @@
     <body>  
 
         <h2>Εισαγωγή νέου Department</h2>
+        <!-- <?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?> -->
         <p><span class="error">* required field</span></p>
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
             Identifier: <input type="text" name="identifier" value="<?php echo $identifier;?>">
